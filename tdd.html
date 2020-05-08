@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TDD</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+
+<body class="bg-dark"></body>
+<div class="container">
+    <div class="d-flex align-center justify-content-center" style="margin-top: 10%;">
+        <div class="col-md-4 px-3">
+            <div class="bg-info text-center pt-4 pb-3 text-white"
+                style="border-top-left-radius: 12px;border-top-right-radius: 12px; font-family: 'Press Start 2P';">
+                <h1 style="font-size: 25px;">Calculadora</h1>
+            </div>
+            <div class="bg-light shadow px-2 py-4" style="border-bottom-left-radius: 12px;border-bottom-right-radius: 12px;">
+                <div class="row mx-1 mb-3">
+                    <div class="col-9">
+                        <input class="form-control text-right" type="number" id="resultado"
+                        style="font-family: 'Press Start 2P';">
+                    </div>
+                        <button class="col mr-3 btn btn-outline-secondary" onclick="btnCE()">CE</button>
+                </div>
+                <div class="row">
+                    <div name="numbers" class="col-7 ml-3">
+                        <div class="row my-2">
+                            <div class="col-3">
+                                <button value="1" class="px-3 btn btn-secondary"
+                                    onclick="btnNumbers(this)">1</button>
+                            </div>
+                            <div class="col-3">
+                                <button value="2" class="px-3 btn btn-secondary"
+                                    onclick="btnNumbers(this)">2</button>
+                            </div>
+                            <div class="col-3">
+                                <button value="3" class="px-3 btn btn-secondary"
+                                    onclick="btnNumbers(this)">3</button>
+                            </div>
+
+                        </div>
+                        <div class="row my-2">
+                            <div class="col-3">
+                                <button value="4" class="px-3 btn btn-secondary"
+                                    onclick="btnNumbers(this)">4</button>
+                            </div>
+                            <div class="col-3">
+                                <button value="5" class="px-3 btn btn-secondary"
+                                    onclick="btnNumbers(this)">5</button>
+                            </div>
+                            <div class="col-3">
+                                <button value="6" class="px-3 btn btn-secondary"
+                                    onclick="btnNumbers(this)">6</button>
+                            </div>
+
+                        </div>
+                        <div class="row my-2">
+                            <div class="col-3">
+                                <button value="7" class="px-3 btn btn-secondary"
+                                    onclick="btnNumbers(this)">7</button>
+                            </div>
+                            <div class="col-3">
+                                <button value="8" class="px-3 btn btn-secondary"
+                                    onclick="btnNumbers(this)">8</button>
+                            </div>
+                            <div class="col-3">
+                                <button value="9" class="px-3 btn btn-secondary"
+                                    onclick="btnNumbers(this)">9</button>
+                            </div>
+                        </div>
+                        <button class="col-10 btn btn-secondary" value="0"
+                        onclick="btnNumbers(this)">0</button>
+                    </div>
+                    <div name="operacao" class="col mt-1 mr-4 px-0">
+                        <div class="row px-3">
+                            <button class="col m-1 btn btn-primary" onclick="btnSoma()">+</button>
+                            <button class="col m-1 btn btn-secondary" onclick="btnSubtrair()">-</button>
+                        </div>
+                        <div class="row my-1 px-3">
+                            <button class="col m-1 btn btn-warning" onclick="btnMultiplicar()">*</button>
+                            <button class="col m-1 btn btn-danger" onclick="btnDividir()">/</button>
+                        </div>
+                        <div class="mr-2 mt-2">
+                            <button class="col py-4 m-1 btn btn-success" onclick="btnIgual()">=</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            var result = null;
+            var operador = null;
+            var verificador = false;
+
+            function testSoma() {
+                if (soma(2, 2) === 4 && soma(5, 9) === 14) {
+                    return "Soma sucesso"
+                } else "Soma falhou"
+            }
+            function testSubtrair() {
+                if (soma(4, 2) === 2 && soma(10, 9) === 1) {
+                    return "Subtrair sucesso"
+                } else "Subtrair falhou"
+            }
+            function testMultiplicar() {
+                if (soma(3, 2) === 6 && soma(10, 10) === 100) {
+                    return "Multiplicar sucesso"
+                } else "Multiplicar falhou"
+            }
+            function testDividir() {
+                if (soma(9, 3) === 3 && soma(10, 2) === 5) {
+                    return "Dividir sucesso"
+                } else "Dividir falhou"
+            }
+
+            function btnCE(){
+                operador = null
+                result = null
+                document.getElementById("resultado").value = ""
+            }
+
+            function btnNumbers(element){
+                if (verificador){
+                    document.getElementById('resultado').value = element.value
+                    verificador = false
+                } else {
+                    var input = document.getElementById('resultado').value 
+                    document.getElementById('resultado').value = `${input}${element.value}`
+                }
+            }
+
+            function btnSoma() {
+                if (result != null){
+                    result += parseInt(document.getElementById("resultado").value, 10)
+                    document.getElementById("resultado").value = result
+                } else {
+                    result = parseInt(document.getElementById("resultado").value, 10)
+                }
+                verificador = true
+                operador = '+'
+            }
+            function btnSubtrair() {
+                if (result != null){
+                    result -= parseInt(document.getElementById("resultado").value, 10)
+                    document.getElementById("resultado").value = result
+                } else {
+                    result = parseInt(document.getElementById("resultado").value, 10)
+                }
+                verificador = true
+                operador = '-'
+            }
+            function btnMultiplicar() {
+                if (result != null){
+                    result *= parseInt(document.getElementById("resultado").value, 10)
+                    document.getElementById("resultado").value = result
+                } else {
+                    result = parseInt(document.getElementById("resultado").value, 10)
+                }
+                verificador = true
+                operador = '*'
+            }
+            function btnDividir() {
+                if (result != null){
+                    result /= parseInt(document.getElementById("resultado").value, 10)
+                    document.getElementById("resultado").value = result
+                } else {
+                    result = parseInt(document.getElementById("resultado").value, 10)
+                }
+                verificador = true
+                operador = '/'
+            }
+
+            function btnIgual() {
+                switch (operador){
+                    case '+':
+                        result += parseInt(document.getElementById("resultado").value, 10)
+                        document.getElementById("resultado").value = result
+                        verificador = true
+                        break;
+                    case '-':
+                        result -= parseInt(document.getElementById("resultado").value, 10)
+                        document.getElementById("resultado").value = result
+                        verificador = true
+                        break;
+                    case '*':
+                        result *= parseInt(document.getElementById("resultado").value, 10)
+                        document.getElementById("resultado").value = result
+                        verificador = true
+                        break;
+                    case '/':
+                        result /= parseInt(document.getElementById("resultado").value, 10)
+                        document.getElementById("resultado").value = result
+                        verificador = true
+                        break;
+                    default: btnCE();
+                }
+                result = null;
+            }
+
+        </script>
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"></script>
+        </body>
+
+</html>
