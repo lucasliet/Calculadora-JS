@@ -13,192 +13,129 @@
 <body class="bg-dark"></body>
 <div class="container">
     <div class="d-flex align-center justify-content-center" style="margin-top: 10%;">
-        <div class="col-md-4 px-3">
+        <div class="col-md-6 col-lg-4 px-3">
             <div class="bg-info text-center pt-4 pb-3 text-white"
                 style="border-top-left-radius: 12px;border-top-right-radius: 12px; font-family: 'Press Start 2P';">
-                <h1 style="font-size: 25px;">Calculadora</h1>
+                <h1 style="font-size: 20px;">Calculadora</h1>
             </div>
-            <div class="bg-light shadow px-2 py-4" style="border-bottom-left-radius: 12px;border-bottom-right-radius: 12px;">
+            <div class="bg-light shadow px-2 py-4"
+                style="border-bottom-left-radius: 12px;border-bottom-right-radius: 12px;">
                 <div class="row mx-1 mb-3">
                     <div class="col-9">
                         <input class="form-control text-right" type="number" id="resultado"
-                        style="font-family: 'Press Start 2P';">
+                            style="font-family: 'Press Start 2P';">
                     </div>
-                        <button class="col mr-3 btn btn-outline-secondary" onclick="btnCE()">CE</button>
+                    <button class="col mr-3 btn btn-outline-secondary" onclick="btnCE()">CE</button>
                 </div>
                 <div class="row">
-                    <div name="numbers" class="col-7 ml-3">
-                        <div class="row my-2">
-                            <div class="col-3">
-                                <button value="1" class="px-3 btn btn-secondary"
-                                    onclick="btnNumbers(this)">1</button>
-                            </div>
-                            <div class="col-3">
-                                <button value="2" class="px-3 btn btn-secondary"
-                                    onclick="btnNumbers(this)">2</button>
-                            </div>
-                            <div class="col-3">
-                                <button value="3" class="px-3 btn btn-secondary"
-                                    onclick="btnNumbers(this)">3</button>
-                            </div>
+                    <div name="numbers" class="col-7 ml-2">
+                        <div class="row my-2 mx-2">
+                            <button value="1" class="col btn btn-secondary" onclick="btnNumbers(this)">1</button>
+                            <button value="2" class="col mx-2 btn btn-secondary" onclick="btnNumbers(this)">2</button>
+                            <button value="3" class="col btn btn-secondary" onclick="btnNumbers(this)">3</button>
+                        </div>
+                        <div class="row my-2 mx-2">
+                            <button value="4" class="col btn btn-secondary" onclick="btnNumbers(this)">4</button>
+                            <button value="5" class="col mx-2 btn btn-secondary" onclick="btnNumbers(this)">5</button>
+                            <button value="6" class="col btn btn-secondary" onclick="btnNumbers(this)">6</button>
 
                         </div>
-                        <div class="row my-2">
-                            <div class="col-3">
-                                <button value="4" class="px-3 btn btn-secondary"
-                                    onclick="btnNumbers(this)">4</button>
-                            </div>
-                            <div class="col-3">
-                                <button value="5" class="px-3 btn btn-secondary"
-                                    onclick="btnNumbers(this)">5</button>
-                            </div>
-                            <div class="col-3">
-                                <button value="6" class="px-3 btn btn-secondary"
-                                    onclick="btnNumbers(this)">6</button>
-                            </div>
-
+                        <div class="row my-2 mx-2">
+                            <button value="7" class="col btn btn-secondary" onclick="btnNumbers(this)">7</button>
+                            <button value="8" class="col mx-2 btn btn-secondary" onclick="btnNumbers(this)">8</button>
+                            <button value="9" class="col btn btn-secondary" onclick="btnNumbers(this)">9</button>
                         </div>
-                        <div class="row my-2">
-                            <div class="col-3">
-                                <button value="7" class="px-3 btn btn-secondary"
-                                    onclick="btnNumbers(this)">7</button>
-                            </div>
-                            <div class="col-3">
-                                <button value="8" class="px-3 btn btn-secondary"
-                                    onclick="btnNumbers(this)">8</button>
-                            </div>
-                            <div class="col-3">
-                                <button value="9" class="px-3 btn btn-secondary"
-                                    onclick="btnNumbers(this)">9</button>
-                            </div>
+                        <div class="row my-2 mx-2">
+                            <button class="col btn btn-secondary" value="0" onclick="btnNumbers(this)">0</button>
                         </div>
-                        <button class="col-10 btn btn-secondary" value="0"
-                        onclick="btnNumbers(this)">0</button>
                     </div>
                     <div name="operacao" class="col mt-1 mr-4 px-0">
-                        <div class="row px-3">
-                            <button class="col m-1 btn btn-primary" onclick="btnSoma()">+</button>
-                            <button class="col m-1 btn btn-secondary" onclick="btnSubtrair()">-</button>
+                        <div class="row mx-1 mt-1">
+                            <button class="col btn btn-primary" onclick="btnCalc('+')">+</button>
+                            <button class="col ml-2 btn btn-secondary" onclick="btnCalc('-')">-</button>
                         </div>
-                        <div class="row my-1 px-3">
-                            <button class="col m-1 btn btn-warning" onclick="btnMultiplicar()">*</button>
-                            <button class="col m-1 btn btn-danger" onclick="btnDividir()">/</button>
+                        <div class="row mx-1 my-2">
+                            <button class="col btn btn-warning" onclick="btnCalc('*')">*</button>
+                            <button class="col ml-2 btn btn-danger" onclick="btnCalc('/')">/</button>
                         </div>
-                        <div class="mr-2 mt-2">
-                            <button class="col py-4 m-1 btn btn-success" onclick="btnIgual()">=</button>
+                        <div class="row mx-1 my-3">
+                            <button class="col py-4 btn btn-success" onclick="btnIgual()">=</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <script>
+            var input = document.getElementById('resultado');
+            input.value = "";
             var result = null;
-            var operador = null;
+            var signal = null;
             var verificador = false;
 
-            function testSoma() {
-                if (soma(2, 2) === 4 && soma(5, 9) === 14) {
-                    return "Soma sucesso"
-                } else "Soma falhou"
-            }
-            function testSubtrair() {
-                if (soma(4, 2) === 2 && soma(10, 9) === 1) {
-                    return "Subtrair sucesso"
-                } else "Subtrair falhou"
-            }
-            function testMultiplicar() {
-                if (soma(3, 2) === 6 && soma(10, 10) === 100) {
-                    return "Multiplicar sucesso"
-                } else "Multiplicar falhou"
-            }
-            function testDividir() {
-                if (soma(9, 3) === 3 && soma(10, 2) === 5) {
-                    return "Dividir sucesso"
-                } else "Dividir falhou"
-            }
+            function calcTests() {
+                if (calcular(2,2,'+') === 4 && calcular(5,9,'+') === 14) {
+                    console.info("Soma sucesso")
+                } else console.error("Soma falhou")
 
-            function btnCE(){
-                operador = null
+                if (calcular(4,2,'-') === 2 && calcular(10,9,'-') === 1) {
+                    console.info("Subtrair sucesso")
+                } else console.error("Subtrair falhou")
+
+                if (calcular(3, 2, '*') === 6 && calcular(10, 10, '*') === 100) {
+                    console.info("Multiplicar sucesso")
+                } else console.error("Multiplicar falhou")
+
+                if (calcular(9, 3,'/') === 3 && calcular(10, 2,'/') === 5) {
+                    console.info("Dividir sucesso")
+                } else console.error("Dividir falhou")
+            }
+            calcTests();
+
+            function btnCE() {
+                signal = null
                 result = null
-                document.getElementById("resultado").value = ""
+                input.value = ""
             }
 
-            function btnNumbers(element){
-                if (verificador){
-                    document.getElementById('resultado').value = element.value
+            function btnNumbers(element) {
+                if (verificador) {
+                    input.value = element.value
                     verificador = false
                 } else {
-                    var input = document.getElementById('resultado').value 
-                    document.getElementById('resultado').value = `${input}${element.value}`
+                    var pastInput = input.value
+                    input.value = `${pastInput}${element.value}`
                 }
             }
-
-            function btnSoma() {
-                if (result != null){
-                    result += parseInt(document.getElementById("resultado").value, 10)
-                    document.getElementById("resultado").value = result
+            function btnCalc(operator) {
+                signal = operator
+                if (result != null) {
+                    result = calcular(result, input.value, signal)
+                    input.value = result
                 } else {
-                    result = parseInt(document.getElementById("resultado").value, 10)
+                    result = parseInt(input.value, 10)
                 }
                 verificador = true
-                operador = '+'
-            }
-            function btnSubtrair() {
-                if (result != null){
-                    result -= parseInt(document.getElementById("resultado").value, 10)
-                    document.getElementById("resultado").value = result
-                } else {
-                    result = parseInt(document.getElementById("resultado").value, 10)
-                }
-                verificador = true
-                operador = '-'
-            }
-            function btnMultiplicar() {
-                if (result != null){
-                    result *= parseInt(document.getElementById("resultado").value, 10)
-                    document.getElementById("resultado").value = result
-                } else {
-                    result = parseInt(document.getElementById("resultado").value, 10)
-                }
-                verificador = true
-                operador = '*'
-            }
-            function btnDividir() {
-                if (result != null){
-                    result /= parseInt(document.getElementById("resultado").value, 10)
-                    document.getElementById("resultado").value = result
-                } else {
-                    result = parseInt(document.getElementById("resultado").value, 10)
-                }
-                verificador = true
-                operador = '/'
             }
 
             function btnIgual() {
-                switch (operador){
-                    case '+':
-                        result += parseInt(document.getElementById("resultado").value, 10)
-                        document.getElementById("resultado").value = result
-                        verificador = true
+                input.value = calcular(result, input.value, signal)
+                verificador = true
+                result = null
+            }
+
+            function calcular(calc, input, operator) {
+                switch (operator) {
+                    case '+': calc += parseInt(input, 10);
                         break;
-                    case '-':
-                        result -= parseInt(document.getElementById("resultado").value, 10)
-                        document.getElementById("resultado").value = result
-                        verificador = true
+                    case '-': calc -= parseInt(input, 10);
                         break;
-                    case '*':
-                        result *= parseInt(document.getElementById("resultado").value, 10)
-                        document.getElementById("resultado").value = result
-                        verificador = true
+                    case '*': calc *= parseInt(input, 10);
                         break;
-                    case '/':
-                        result /= parseInt(document.getElementById("resultado").value, 10)
-                        document.getElementById("resultado").value = result
-                        verificador = true
+                    case '/': calc /= parseInt(input, 10);
                         break;
                     default: btnCE();
                 }
-                result = null;
+                return calc;
             }
 
         </script>
