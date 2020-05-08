@@ -14,16 +14,13 @@
 <div class="container">
     <div class="d-flex align-center justify-content-center" style="margin-top: 10%;">
         <div class="col-md-6 col-lg-4 px-3">
-            <div class="bg-info text-center pt-4 pb-3 text-white"
-                style="border-top-left-radius: 12px;border-top-right-radius: 12px; font-family: 'Press Start 2P';">
+            <div class="bg-info rounded-top text-center font-player pt-4 pb-3 text-white">
                 <h1 style="font-size: 20px;">Calculadora</h1>
             </div>
-            <div class="bg-light shadow px-2 py-4"
-                style="border-bottom-left-radius: 12px;border-bottom-right-radius: 12px;">
+            <div class="bg-light rounded-bottom shadow px-2 py-4">
                 <div class="row mx-1 mb-3">
                     <div class="col-9">
-                        <input class="form-control text-right" type="number" id="resultado"
-                            style="font-family: 'Press Start 2P';">
+                        <input class="font-player form-control text-right" type="number" id="resultado">
                     </div>
                     <button class="col mr-3 btn btn-outline-secondary" onclick="btnCE()">CE</button>
                 </div>
@@ -65,89 +62,17 @@
                 </div>
             </div>
         </div>
-        <script>
-            var input = document.getElementById('resultado');
-            input.value = "";
-            var result = null;
-            var signal = null;
-            var verificador = false;
-
-            function calcTests() {
-                if (calcular(2,2,'+') === 4 && calcular(5,9,'+') === 14) {
-                    console.info("Soma sucesso")
-                } else console.error("Soma falhou")
-
-                if (calcular(4,2,'-') === 2 && calcular(10,9,'-') === 1) {
-                    console.info("Subtrair sucesso")
-                } else console.error("Subtrair falhou")
-
-                if (calcular(3, 2, '*') === 6 && calcular(10, 10, '*') === 100) {
-                    console.info("Multiplicar sucesso")
-                } else console.error("Multiplicar falhou")
-
-                if (calcular(9, 3,'/') === 3 && calcular(10, 2,'/') === 5) {
-                    console.info("Dividir sucesso")
-                } else console.error("Dividir falhou")
-            }
-            calcTests();
-
-            function btnCE() {
-                signal = null
-                result = null
-                input.value = ""
-            }
-
-            function btnNumbers(element) {
-                if (verificador) {
-                    input.value = element.value
-                    verificador = false
-                } else {
-                    var pastInput = input.value
-                    input.value = `${pastInput}${element.value}`
-                }
-            }
-            function btnCalc(operator) {
-                signal = operator
-                if (result != null) {
-                    result = calcular(result, input.value, signal)
-                    input.value = result
-                } else {
-                    result = parseInt(input.value, 10)
-                }
-                verificador = true
-            }
-
-            function btnIgual() {
-                input.value = calcular(result, input.value, signal)
-                verificador = true
-                result = null
-            }
-
-            function calcular(calc, input, operator) {
-                switch (operator) {
-                    case '+': calc += parseInt(input, 10);
-                        break;
-                    case '-': calc -= parseInt(input, 10);
-                        break;
-                    case '*': calc *= parseInt(input, 10);
-                        break;
-                    case '/': calc /= parseInt(input, 10);
-                        break;
-                    default: btnCE();
-                }
-                return calc;
-            }
-
-        </script>
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-            crossorigin="anonymous"></script>
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-            crossorigin="anonymous"></script>
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-            crossorigin="anonymous"></script>
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+        <script src="script.js"></script>
         </body>
 
 </html>

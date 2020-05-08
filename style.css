@@ -1,0 +1,11 @@
+.font-player{
+    font-family: 'Press Start 2P';
+}
+.rounded-top{
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+.rounded-bottom{
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
