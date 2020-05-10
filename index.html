@@ -2,92 +2,100 @@
 <html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora</title>
 
-    <link rel="shortcut icon" href="assets/favicon.svg" type="image/x-icon">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
-    <link rel="manifest" href="assets/site.webmanifest">
-    <link rel="mask-icon" href="assets/safari-pinned-tab.svg" color="#343a40">
-    <link rel="shortcut icon" href="assets/favicon.ico">
-    <meta name="apple-mobile-web-app-title" content="Calculadora">
-    <meta name="application-name" content="Calculadora">
-    <meta name="msapplication-TileColor" content="#343a40">
-    <meta name="msapplication-config" content="assets/browserconfig.xml">
-    <meta name="theme-color" content="#343a40">
+  <link rel="shortcut icon" href="assets/favicon.svg" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+  <link rel="manifest" href="assets/site.webmanifest">
+  <link rel="mask-icon" href="assets/safari-pinned-tab.svg" color="#343a40">
+  <link rel="shortcut icon" href="assets/favicon.ico">
+  <meta name="apple-mobile-web-app-title" content="Calculadora">
+  <meta name="application-name" content="Calculadora">
+  <meta name="msapplication-TileColor" content="#343a40">
+  <meta name="msapplication-config" content="assets/browserconfig.xml">
+  <meta name="theme-color" content="#343a40">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body class="bg-dark">
-<div class="container">
+  <div class="container">
     <div class="d-flex align-center justify-content-center" style="margin-top: 15vh;">
-        <div class="col-md-6 col-lg-4 px-3">
-            <div class="bg-info radius-top text-center font-player pt-4 pb-3 text-white">
-                <h1 style="font-size: 20px;">Calculadora</h1>
-            </div>
-            <div class="bg-light radius-bottom shadow px-2 py-4">
-                <div class="row mx-1 mb-3">
-                    <div class="col-9">
-                        <input class="font-player form-control text-right" type="number" id="resultado">
-                    </div>
-                    <button class="col mr-3 btn btn-outline-secondary" onclick="btnCE()">CE</button>
-                </div>
-                <div class="row">
-                    <div name="numbers" class="col-7 ml-2">
-                        <div class="row my-2 mx-2">
-                            <button value="1" class="col btn btn-secondary" onclick="btnNumbers(this)">1</button>
-                            <button value="2" class="col mx-2 btn btn-secondary" onclick="btnNumbers(this)">2</button>
-                            <button value="3" class="col btn btn-secondary" onclick="btnNumbers(this)">3</button>
-                        </div>
-                        <div class="row my-2 mx-2">
-                            <button value="4" class="col btn btn-secondary" onclick="btnNumbers(this)">4</button>
-                            <button value="5" class="col mx-2 btn btn-secondary" onclick="btnNumbers(this)">5</button>
-                            <button value="6" class="col btn btn-secondary" onclick="btnNumbers(this)">6</button>
-
-                        </div>
-                        <div class="row my-2 mx-2">
-                            <button value="7" class="col btn btn-secondary" onclick="btnNumbers(this)">7</button>
-                            <button value="8" class="col mx-2 btn btn-secondary" onclick="btnNumbers(this)">8</button>
-                            <button value="9" class="col btn btn-secondary" onclick="btnNumbers(this)">9</button>
-                        </div>
-                        <div class="row my-2 mx-2">
-                            <button class="col btn btn-secondary" value="0" onclick="btnNumbers(this)">0</button>
-                        </div>
-                    </div>
-                    <div name="operacao" class="col mt-1 mr-4 px-0">
-                        <div class="row mx-1 mt-1">
-                            <button class="col btn btn-primary" onclick="btnCalc('+')">+</button>
-                            <button class="col ml-2 btn btn-secondary" onclick="btnCalc('-')">-</button>
-                        </div>
-                        <div class="row mx-1 my-2">
-                            <button class="col btn btn-warning" onclick="btnCalc('*')">*</button>
-                            <button class="col ml-2 btn btn-danger" onclick="btnCalc('/')">/</button>
-                        </div>
-                        <div class="row mx-1 my-3">
-                            <button class="col py-4 btn btn-success" onclick="btnIgual()">=</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="col-md-6 col-lg-4 px-3">
+        <div class="bg-info radius-top text-center font-player pt-4 pb-3 text-white">
+          <h1 style="font-size: 20px;">Calculadora</h1>
         </div>
-        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-            crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-            crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-            crossorigin="anonymous"></script>
+        <div class="bg-light radius-bottom shadow px-2 py-4">
+          <div class="row mx-1 mb-3">
+            <div class="col-9">
+              <input class="font-player form-control text-right" type="number" id="calculator-display">
+            </div>
+            <button class="col mr-3 btn btn-outline-secondary" onclick="CalculatorView.handleClear()">CE</button>
+          </div>
+          <div class="row">
+            <div name="numbers" class="col-7 ml-2">
+              <div class="row my-2 mx-2">
+                <button value="1" class="col btn btn-secondary" onclick="CalculatorView.handleNumber(this)">1</button>
+                <button value="2" class="col mx-2 btn btn-secondary" onclick="CalculatorView.handleNumber(this)">2</button>
+                <button value="3" class="col btn btn-secondary" onclick="CalculatorView.handleNumber(this)">3</button>
+              </div>
+              <div class="row my-2 mx-2">
+                <button value="4" class="col btn btn-secondary" onclick="CalculatorView.handleNumber(this)">4</button>
+                <button value="5" class="col mx-2 btn btn-secondary" onclick="CalculatorView.handleNumber(this)">5</button>
+                <button value="6" class="col btn btn-secondary" onclick="CalculatorView.handleNumber(this)">6</button>
 
-        <script src="script.js"></script>
-        </body>
+              </div>
+              <div class="row my-2 mx-2">
+                <button value="7" class="col btn btn-secondary" onclick="CalculatorView.handleNumber(this)">7</button>
+                <button value="8" class="col mx-2 btn btn-secondary" onclick="CalculatorView.handleNumber(this)">8</button>
+                <button value="9" class="col btn btn-secondary" onclick="CalculatorView.handleNumber(this)">9</button>
+              </div>
+              <div class="row my-2 mx-2">
+                <button class="col btn btn-secondary" value="0" onclick="CalculatorView.handleNumber(this)">0</button>
+              </div>
+            </div>
+            <div name="operacao" class="col mt-1 mr-4 px-0">
+              <div class="row mx-1 mt-1">
+                <button value="+" class="col btn btn-primary" onclick="CalculatorView.handleOperationSign(this)">+</button>
+                <button value="-" class="col ml-2 btn btn-secondary"
+                  onclick="CalculatorView.handleOperationSign(this)">-</button>
+              </div>
+              <div class="row mx-1 my-2">
+                <button value="*" class="col btn btn-warning" onclick="CalculatorView.handleOperationSign(this)">*</button>
+                <button value="/" class="col ml-2 btn btn-danger"
+                  onclick="CalculatorView.handleOperationSign(this)">/</button>
+              </div>
+              <div class="row mx-1 my-3">
+                <button class="col py-4 btn btn-success" onclick="CalculatorView.handleCalculate()">=</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+
+  <script src="./scripts/controller/calculator.js"></script>
+  <script src="./scripts/model/calculator.js"></script>
+  <script src="./scripts/view/calculator.js"></script>
+  <script src="./scripts/tests/calculator.test.js"></script>
+</body>
 
 </html>
